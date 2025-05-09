@@ -54,7 +54,7 @@ export default function Index() {
           Here is the end. Thank you for visiting my personal website, wish you were enjoy it!
         </p>
         <p className="text-xs mt-3">
-          This website is made by me with <strong>Remix</strong> and <strong>Tailwind CSS</strong>, deployed on <strong>Cloudflare</strong>.</p>
+          This website is made by Maulana Hafidz Ismail with <strong>Remix</strong> and <strong>Tailwind CSS</strong>, and deployed with <strong>Amazon Lightsail</strong>.</p>
       </div>
   );
 } 
