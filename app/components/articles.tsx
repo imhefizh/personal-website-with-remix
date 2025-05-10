@@ -1,3 +1,4 @@
+import { Link } from "@remix-run/react";
 import { useState } from "react";
 
 interface Props {
@@ -19,7 +20,7 @@ export default function Articles({datas}: Props) {
                     I like to write about things I&apos;ve found, learned, or anything I&apos;m curious about. You can read my articles here. I hope they help you learn something, or maybe we can even discuss it together.
                 </p>
                 {datas.map((article, index) => (
-                <div key={index} id="article-card" className={`${index < 3 || show == true ? "" : "hidden"} mt-3 border border-white w-full h-auto rounded-md p-3`}>
+                <Link to={`/articles/${encodeURIComponent(article.title)}`} key={index} id="article-card" className={`${index < 3 || show == true ? "" : "hidden"} mt-3 border border-white w-full h-auto rounded-md p-3`}>
                     <h2 className="font-semibold text-lg leading-tight">{article.title}</h2>
                     <p className="text-xs mt-3 line-clamp-2">{article.content}</p>
                     <ul className="mt-4 flex gap-1 flex-wrap text-xs">
@@ -27,7 +28,7 @@ export default function Articles({datas}: Props) {
                             <li key={index} className="w-fit bg-white text-black rounded-full px-2">{tag}</li>
                         ))}
                     </ul>
-                </div>
+                </Link>
                 ))}
                 <button className="pt-5 tablet:hidden flex items-center gap-1 w-full justify-center" onClick={() => setShow((prev) => !prev)}>
                     <div className="bg-white w-5 h-[2px]"></div>
