@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import About from "~/components/about";
 import BadgesAndCerts from "~/components/badgesAndCerts";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { readAchievement, readArticles } from "../../db.js"
 import Articles from "~/components/articles.js";
 import Works from "~/components/works.js";
@@ -47,7 +47,11 @@ export default function Index() {
   return (
       <div className="text-white bg-black px-7 pb-6">
         <header className="mt-12">
-        <h1 className="font-[800] text-5xl">Maulana Hafidz Ismail</h1>
+        <h1 className="font-[800] text-5xl">
+          <Link to="/login" className="cursor-text">
+            Maulana Hafidz Ismail
+          </Link>
+        </h1>
         <div id="roles" className="flex flex-wrap gap-1 mt-3">
           <div className="text-black bg-white rounded-full w-fit px-2 text-sm">Fullstack Developer</div>
           <div className="text-black bg-white rounded-full w-fit px-2 text-sm">Software Engineer</div>

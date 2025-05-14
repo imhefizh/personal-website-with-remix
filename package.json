@@ -11,15 +11,18 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@editorjs/editorjs": "^2.30.8",
     "@remix-run/node": "^2.16.5",
     "@remix-run/react": "^2.16.5",
     "@remix-run/serve": "^2.16.5",
     "dotenv": "^16.5.0",
     "isbot": "^4.1.0",
+    "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.16.0",
     "prettier": "^3.5.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-quill": "^2.0.0"
   },
   "devDependencies": {
     "@remix-run/cloudflare": "^2.16.6",

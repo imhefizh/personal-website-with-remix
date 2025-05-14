@@ -16,7 +16,14 @@ export default function Article() {
 
     return (
         <div className="text-black bg-white min-h-screen">
-            <header className="w-full h-20 flex items-center font-bold text-3xl border-b border-black px-10">Articles</header>
+            <header className="justify-between w-full h-20 flex items-center font-bold text-3xl border-b border-black px-10">
+                <h2>Articles</h2>
+                <Link to='/'>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
+                </svg>
+                </Link>
+            </header>
             <div className="mt-5 px-10">
                 <div className="">
                     <h1 id="title" className="font-extrabold text-4xl">{title}</h1>
@@ -27,8 +34,6 @@ export default function Article() {
                     </div>
                 </div>
                 <div className="mt-5 pb-5 text-justify text-lg leading-relaxed">
-                    <p id="content">{content ? content : "Can't load the Content"}</p>
-                    <p id="content">{content ? content : "Can't load the Content"}</p>
                     <p id="content">{content ? content : "Can't load the Content"}</p>
                 </div>
                 <div id="tags" className="gap-2 flex flex-wrap">
