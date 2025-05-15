@@ -36,12 +36,14 @@ export default function Login() {
                 window.location.replace("/admin")
             } else {
                 alert(response?.msg)
+                document.getElementById("input").value = "";
+                window.location.reload()
             }
         }
     }, [actionData])
 
     return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex flex-col items-center justify-center min-h-dvh">
         <h1 className="font-bold text-xl">Hello Sir, Is that you?</h1>
         <Form method="post">
             <input id="input" name="password" type="password" className="px-2 text-center mt-2 border border-white rounded-sm bg-transparent focus:outline-none " />

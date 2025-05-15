@@ -48,9 +48,9 @@ export default function App() {
   // const load = useLoaderData<typeof loader>()
   // console.log(load)
   return (
-  <div className="text-white">
-    <div className="">
-      <Outlet />
+  <div className="text-white md:flex md:justify-center md:h-screen">
+    <div className="md:w-screen md:max-w-screen-xl">
+        <Outlet />
     </div>
   </div>
 );

@@ -1,6 +1,16 @@
-import type { LoaderFunctionArgs } from "@remix-run/node"
-import { Link, useLoaderData } from "@remix-run/react"
+import type { ActionFunctionArgs, LoaderFunctionArgs, MetaFunction } from "@remix-run/node"
+import { Form, Link, useLoaderData } from "@remix-run/react"
 import { readArticles } from "db";
+
+
+export const meta: MetaFunction = () => {
+    const title = "Maulana Hafidz's Articles"
+
+    return [
+        { title: title},
+        { name: "description", content: "Maulana Hafidz's Articles" },
+    ];
+};
 
 export const loader = async ({
     params,
@@ -8,14 +18,25 @@ export const loader = async ({
     const articles = await readArticles();
 
     const content = articles?.find(art => art.title == params.title)
-    return {title: params.title, content: content?.content, tags:content?.tags, articles}
+    return {title: params.title, content: content?.content, tags:content?.tags, articles, date: content?.date, readTime: content?.readTime}
+}
+
+export const action = async ({
+    request
+}: ActionFunctionArgs) => {
+    const formData = await request.formData()
+    const data = Object.fromEntries(formData)
+    console.log(data)
+    return null
 }
 
 export default function Article() {
-    const {title, content, tags, articles} = useLoaderData()
+    const {title, content, tags, articles, date, readTime} = useLoaderData()
 
     return (
-        <div className="text-black bg-white min-h-screen">
+        <div className="text-black bg-gray-100 min-h-screen md:absolute md:w-screen md:left-0 md:flex md:justify-center">
+            <div className="max-w-screen-xl bg-white">
+
             <header className="justify-between w-full h-20 flex items-center font-bold text-3xl border-b border-black px-10">
                 <h2>Articles</h2>
                 <Link to='/'>
@@ -28,28 +49,79 @@ export default function Article() {
                 <div className="">
                     <h1 id="title" className="font-extrabold text-4xl">{title}</h1>
                     <div className="gap-2 text-gray-500 mt-3 flex items-center">
-                    <p>5 min read</p>
+                    <p>{`${readTime} min read`}</p>
                     <p>•</p>
-                    <h3>10 May 2025</h3>
+                    <h3>{date}</h3>
                     </div>
                 </div>
                 <div className="mt-5 pb-5 text-justify text-lg leading-relaxed">
-                    <p id="content">{content ? content : "Can't load the Content"}</p>
+                    <p id="content" dangerouslySetInnerHTML={{ __html: content }}></p>
                 </div>
                 <div id="tags" className="gap-2 flex flex-wrap">
                     {tags.map((tag, index) => (
-                        <h2 key={index} className="bg-gray-300 text-gray-500 text-xl w-fit rounded-full p-1 px-4 ">
+                        <h2 key={index} className="bg-gray-300 text-gray-500 text-base w-fit rounded-full p-1 px-4 ">
                             {tag ? tag : ""}
                         </h2>
                     ))}
                 </div>
-                <div className="pb-8 mt-5 w-full">
-                    <div className="flex items-center">
-                        <h3 className="text-2xl font-bold text-nowrap">Other Articles</h3>
-                        <div className="h-[1px] ml-2 w-full bg-black">
+                <div className="pb-8 mt-5 w-full flex flex-col md:flex-row md:justify-between gap-5">
+                    <div className="md:w-[60%] h-auto">
+                        <div id="write-response">
+                        <div className="flex items-center"> 
+                            <h3 className="text-2xl font-bold text-nowrap">What is your thought?</h3>
+                            <div className="h-[1px] ml-2 w-full bg-black md:hidden">
+                            </div>
                         </div>
+                        <div id="commenting" className="mt-3 flex flex-col gap-2 h-auto bg-gray-100 rounded-lg py-3 px-3">
+                            <Form method="post" className="flex flex-col h-auto w-full items-start">
+                                <label htmlFor="name">Name:</label>
+                                <input name="name" id="name" type="text" className="rounded-sm px-2 w-full" />
+                                <label htmlFor="comment" className="mt-1">Response:</label>
+                                <textarea name="comment" id="comment" className="w-full" />
+                                <div className="flex justify-end w-full">
+                                    <button className="mt-3 font-bold border text-sm border-black hover:text-white hover:bg-black rounded-full w-fit px-2" type="submit">Respond</button>
+                                </div>
+                            </Form> 
+                        </div>    
+                        </div>
+                        <div>
+                        <div className="flex items-center mt-5"> 
+                            <h3 className="text-2xl font-bold text-nowrap">Other Responses</h3>
+                            <div className="h-[1px] ml-2 w-full bg-black md:hidden">
+                            </div>
+                        </div>
+                        <div id="comment-card" className="mt-2 flex flex-col gap-2 bg-gray-100 rounded-lg py-3 px-3">
+                            <div id="head" className="flex items-center gap-2">
+                                <div className="h-10 w-10 overflow-hidden rounded-full bg-black"></div>
+                                <div className="flex flex-col py-1">
+                                    <h4 className="text-lg font-bold -mt-1">Maulana Hafidz</h4>
+                                    <p className="text-gray-500 text-xs">15 May 2025</p>
+                                </div>
+                            </div>
+                            <div id="main">
+                            <p>Artikelnya keren!</p>
+                            </div>
+                        </div>
+                        </div>
+                        {/* {articles.map((article, index) => (
+                            <div key={index} id="article-card" className={`${index < 3 == true ? "" : "hidden"} mt-3 border border-black black w-full h-auto rounded-md p-3`}>
+                                <h2 className="font-semibold text-lg leading-tight">{article.title}</h2>
+                                <p className="text-xs mt-3 line-clamp-2">{article.content}</p>
+                                <ul className="mt-4 flex gap-1 flex-wrap text-xs">
+                                    {article["tags"].map((tag, index) => (
+                                        <li key={index} className="w-fit bg-black text-white rounded-full px-2">{tag}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))} */}
                     </div>
-                    {articles.map((article, index) => (
+                    <div className="md:w-[40%]">
+                        <div className="flex items-center"> 
+                        <h3 className="text-2xl font-bold text-nowrap">Other Articles</h3>
+                        <div className="h-[1px] ml-2 w-full bg-black md:hidden">
+                        </div>
+                        </div>
+                        {articles.map((article, index) => (
                         <Link key={index} to={`/articles/${encodeURIComponent(article.title)}`}>
                 <div id="article-card" className={`${index < 3 == true ? "" : "hidden"} mt-3 border border-black black w-full h-auto rounded-md p-3`}>
                     <h2 className="font-semibold text-lg leading-tight">{article.title}</h2>
@@ -61,7 +133,9 @@ export default function Article() {
                     </ul>
                 </div>
                         </Link>
-                ))}
+                        ))}
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

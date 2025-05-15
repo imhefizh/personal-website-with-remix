@@ -15,14 +15,32 @@ const client = new MongoClient(uri, {
   },
 });
 
-export async function insertOne(headline, content) {
+export async function insertOne(data) {
   try {
     await client.connect();
 
     const dbInstance = client.db("content");
     const collection = dbInstance.collection("articles");
 
-    return await collection.insertOne({ headline: headline, content: content });
+    return await collection.insertOne(data);
+  } catch (err) {
+    console.log(err);
+  } finally {
+    await client.close();
+  }
+}
+
+export async function insertOneResponse(data) {
+  try {
+    await client.connect();
+
+    const dbInstance = client.db("content");
+    const collection = dbInstance.collection("articles");
+
+    const theArticle = collection.findOne(data.title);
+    // Dilanjut besok
+
+    return await collection.insertOne(data);
   } catch (err) {
     console.log(err);
   } finally {

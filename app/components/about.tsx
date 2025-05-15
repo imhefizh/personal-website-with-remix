@@ -1,18 +1,18 @@
 import { useState } from "react"
 
-export default function About() {
+export default function About({pageData}) {
     const [show, setShow] = useState(0);
     const [collapse, setCollapse] = useState(false)
 
     return (
-        <div className="mt-10">
-            <h1 className="font-bold text-2xl">About</h1>
+        <div className={`mt-10 md:w-[55%] md:mt-0 md:py-28 ${pageData == 0 ? "" : "hidden"}`}>
+            <h1 className="font-bold text-2xl md:text-3xl">About Me</h1>
             <div className="flex flex-col items-center">
-                <p className="text-xs mt-2">
+                <p className="text-xs mt-2 md:text-base md:text-justify">
                 Everyone like to read less and get the point straightly. So I&apos;ll make this page with several questions that help you to know me. Here we go...
                 </p>
                 <ul className="mt-3 flex flex-col gap-2 w-full">
-                    <li className="flex flex-col items-center">
+                    <li className="flex flex-col items-center md:text-lg">
                         <button onClick={() => setShow(show != 1 ? 1 : 0)} className="flex items-center w-[80%] justify-between">
                             <h2>
                                 Who are you?
@@ -21,12 +21,12 @@ export default function About() {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                             </svg>
                         </button>
-                        <p className={`text-xs text-justify mt-1 border-b border-white pb-2 ${show == 1 ? "" : "hidden"}`}>
+                        <p className={`text-xs text-justify mt-1 border-b border-white pb-2 ${show == 1 ? "" : "hidden"} md:text-base md:w-full md:mt-2 md:mb-2`}>
                             I am Maulana Hafidz Ismail. Everyone knows me as Hafidz, 21 years old of life made me being a curious person.
                         </p>
                     </li>
 
-                    <li className="flex flex-col items-center">
+                    <li className="flex flex-col items-center md:text-lg">
                         <button onClick={() => setShow(show != 2 ? 2 : 0)} className="flex items-center w-[80%] justify-between">
                             <h2>
                                 What are you interested to?
@@ -35,12 +35,12 @@ export default function About() {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                             </svg>
                         </button>
-                        <p className={`text-xs text-justify mt-1 border-b border-white pb-2 ${show == 2 ? "" : "hidden"}`}>
+                        <p className={`text-xs text-justify mt-1 border-b border-white pb-2 ${show == 2 ? "" : "hidden"} md:text-base md:w-full md:mt-2 md:mb-2`}>
                         Digital world, computer, any technologies, are always look like an awesome magic for me. If our anchestor had magic spell and magic book to teleport, to cure people, and make everyone life easier, today we have advance technologies for doing those things! And much more efficient because everyone can use it easily.
                         </p>
                     </li>
 
-                    <li className="flex flex-col items-center">
+                    <li className="flex flex-col items-center md:text-lg">
                         <button onClick={() => setShow(show != 3 ? 3 : 0)} className="flex items-center w-[80%] justify-between">
                             <h2>
                                 Any dream for life? Any vision?
@@ -49,12 +49,12 @@ export default function About() {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                                     </svg>
                         </button>
-                        <p className={`text-xs text-justify mt-1 border-b border-white pb-2 ${show == 3 ? "" : "hidden"}`}>
+                        <p className={`text-xs text-justify mt-1 border-b border-white pb-2 ${show == 3 ? "" : "hidden"} md:text-base md:w-full md:mt-2 md:mb-2`}>
                             I am dreaming about better life for everyone. I got news that some people using their capability to make other&apos;s life worse, even some people in goverment, I want fight them one day later, for now I just need to learn more and make some money to get into next step.
                         </p>
                     </li>
 
-                    <li className="flex flex-col items-center">
+                    <li className="flex flex-col items-center md:text-lg">
                         <button onClick={() => setShow(show != 4 ? 4 : 0)} className="flex items-center w-[80%] justify-between">
                         <h2>
                             What you want to be?
@@ -63,12 +63,12 @@ export default function About() {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                                 </svg>
                         </button>
-                        <p className={`text-xs text-justify mt-1 border-b border-white pb-2 ${show == 4 ? "" : "hidden"}`}>
+                        <p className={`text-xs text-justify mt-1 border-b border-white pb-2 ${show == 4 ? "" : "hidden"} md:text-base md:w-full md:mt-2 md:mb-2`}>
                             I want to be a great visionary person, just like every visionary people on earth that bring a solution for everyone problems.
                         </p>
                     </li>
 
-                    <li className="flex flex-col items-center">
+                    <li className="flex flex-col items-center md:text-lg">
                         <button onClick={() => setShow(show != 5 ? 5 : 0)} className="flex items-center w-[80%] justify-between">
                         <h2>
                             Do your have any Role Model?
@@ -77,25 +77,25 @@ export default function About() {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                                 </svg>
                         </button>
-                        <p className={`text-xs text-justify mt-1 border-b border-white pb-2 ${show == 5 ? "" : "hidden"}`}>
+                        <p className={`text-xs text-justify mt-1 border-b border-white pb-2 ${show == 5 ? "" : "hidden"} md:text-base md:w-full md:mt-2 md:mb-2`}>
                             For my career, I am inspired by Tony Stark, Linus Torvalds, and Steve Jobs. For being human, it is always Prophet Muhammad SAW.
                         </p>
                     </li>
                 </ul>
-                <p className="text-xs mt-3">
+                <p className="text-xs mt-3 md:text-base md:text-justify">
                 My mind always starts with &quot;How if..&quot; when facing a problem, and to get the answer I have to make my insights wider and gain more experiences. I know it is still a few, but here is what am I experienced with
                 </p>
-                <div id="logos" className={`gap-5 mt-6 grid w-auto grid-cols-4`}>
+                <div id="logos" className={`gap-5 mt-6 grid w-auto grid-cols-4 md:grid-cols-5`}>
                         <div id="javascript" className="relative h-fit">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer">
-                                <div className={`h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 laptop:opacity-100 transition-opacity ease-in-out duration-500 hover:opacity-0`}></div>
+                                <div className={`h-16 w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 transition-opacity ease-in-out duration-500 hover:opacity-0 md:w-20 md:h-20 md:opacity-100`}></div>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="800"
                                     height="800"
                                     preserveAspectRatio="xMinYMin meet"
                                     viewBox="0 0 256 256"
-                                    className="h-auto  w-16 z-10"
+                                    className="h-auto  w-16 z-10 md:w-20"
                                 >
                                     <path fill="#F7DF1E" d="M0 0h256v256H0z"></path>
                                     <path d="m67.312 213.932 19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371 7.905 0 12.89-3.092 12.89-15.12v-81.798h24.057v82.138c0 24.917-14.606 36.259-35.916 36.259-19.245 0-30.416-9.967-36.087-21.996m85.07-2.576 19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607 9.969 0 16.325-4.984 16.325-11.858 0-8.248-6.53-11.17-17.528-15.98l-6.013-2.58c-17.357-7.387-28.87-16.667-28.87-36.257 0-18.044 13.747-31.792 35.228-31.792 15.294 0 26.292 5.328 34.196 19.247l-18.732 12.03c-4.125-7.389-8.591-10.31-15.465-10.31-7.046 0-11.514 4.468-11.514 10.31 0 7.217 4.468 10.14 14.778 14.608l6.014 2.577c20.45 8.765 31.963 17.7 31.963 37.804 0 21.654-17.012 33.51-39.867 33.51-22.339 0-36.774-10.654-43.819-24.574"></path>
@@ -104,13 +104,13 @@ export default function About() {
                         </div>
                         <div id="react" className="relative h-fit">
                             <a href="https://react.dev/" target="_blank" rel="noreferrer">
-                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 laptop:opacity-100 transition-opacity ease-in-out duration-500 hover:opacity-0`}></div>
+                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 transition-opacity ease-in-out duration-500 hover:opacity-0 md:w-20 md:h-20 md:opacity-100`}></div>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="800"
                                     height="800"
                                     viewBox="175.7 78 490.6 436.9"
-                                    className="h-auto  w-16 z-10"
+                                    className="h-auto  w-16 z-10 md:w-20"
                                 >
                                     <g fill="#61dafb">
                                         <path d="M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9V78c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6V78.5c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3m-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9m-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9m32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1M421.2 430c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32m-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24s9.5 15.8 14.4 23.4M420.7 163c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32m-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16-13 24-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9m-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6s22.9-35.6 58.3-50.6c8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2M310 490c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7m237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1m38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6"></path>
@@ -119,22 +119,22 @@ export default function About() {
                                 </svg>
                             </a>
                         </div>
-                        <div id="nextjs" className="relative  h-16  w-16 bg-white rounded-full overflow-clip flex items-center justify-center">
+                        <div id="nextjs" className="relative h-16 w-16 md:w-20 md:h-20 bg-white rounded-full overflow-clip flex items-center justify-center">
                             <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
-                                <div className={` h-16  w-16 bg-gray-900 absolute inset-0 z-20 mix-blend-overlay opacity-0 laptop:opacity-100 transition-opacity ease-in-out duration-500 hover:opacity-0`}></div>
+                                <div className={` h-16  w-16 bg-gray-900 absolute inset-0 z-20 mix-blend-overlay opacity-0 transition-opacity ease-in-out duration-500 hover:opacity-0 md:w-20 md:h-20 md:opacity-100`}></div>
                                 <img src='/nextjs2106.logowik.com.webp' alt="nextjs-logo" width={800} height={800} className="z-10" />
                             </a>
                         </div>
                         <div id="css" className="relative h-fit">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noreferrer">
-                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 laptop:opacity-100 transition-opacity ease-in-out duration-500 hover:opacity-0`}></div>
+                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 transition-opacity ease-in-out duration-500 hover:opacity-0 md:w-20 md:h-20 md:opacity-100`}></div>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     id="svg3476"
                                     width="800"
                                     height="800"
                                     viewBox="0 0 64 64"
-                                    className="h-auto  w-16 z-10"
+                                    className="h-auto w-16 z-10 md:w-20"
                                 >
                                     <g id="layer1" transform="translate(-193.633 -739.48)">
                                         <path
@@ -177,22 +177,22 @@ export default function About() {
                                 </svg>
                             </a>
                         </div>
-                        <div id="nodejs" className="relative p-2  h-16  w-16 bg-white rounded-full overflow-clip flex items-center justify-center">
+                        <div id="nodejs" className="relative p-2 h-16 w-16 bg-white rounded-full overflow-clip flex items-center justify-center md:w-20 md:h-20">
                             <a href="https://nodejs.org/en" target="_blank" rel="noreferrer">
-                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 laptop:opacity-100 transition-opacity ease-in-out duration-500 hover:opacity-0`}></div>
+                                <div className={` h-16 w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 transition-opacity ease-in-out duration-500 hover:opacity-0 md:w-20 md:h-20 md:opacity-100`}></div>
                                 <img src='/Node.js_logo.svg.png' alt="nextjs-logo" width={800} height={800} className="z-10" />
                             </a>
                         </div>
                         <div id="html" className="relative h-fit">
                             <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noreferrer">
-                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 laptop:opacity-100 transition-opacity ease-in-out duration-500 hover:opacity-0`}></div>
+                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 transition-opacity ease-in-out duration-500 hover:opacity-0 md:w-20 md:h-20 md:opacity-100`}></div>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="800"
                                     height="800"
                                     fill="none"
                                     viewBox="0 0 124 141.532"
-                                    className="h-auto  w-16 z-10"
+                                    className="h-auto w-16 z-10 md:w-20"
                                 >
                                     <path
                                         fill="#e34f26"
@@ -211,13 +211,13 @@ export default function About() {
                         </div>
                         <div id="docker" className="relative h-fit pt-2">
                             <a href="https://www.docker.com/" target="_blank" rel="noreferrer">
-                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 laptop:opacity-100 transition-opacity ease-in-out duration-500 hover:opacity-0`}></div>
+                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 transition-opacity ease-in-out duration-500 hover:opacity-0 md:w-20 md:h-20 md:opacity-100`}></div>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="2500"
                                     height="2100"
                                     viewBox="0 0 256 215"
-                                    className="h-auto  w-16 z-10"
+                                    className="h-auto  w-16 z-10 md:w-20"
                                 >
                                     <g fill="none" fillRule="evenodd">
                                         <path
@@ -290,14 +290,14 @@ export default function About() {
                         </div>
                         <div id="kubernetes" className="relative h-fit">
                             <a href="https://kubernetes.io/id/" target="_blank" rel="noreferrer">
-                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 laptop:opacity-100 transition-opacity ease-in-out duration-500 hover:opacity-0`}></div>
+                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 transition-opacity ease-in-out duration-500 hover:opacity-0 md:w-20 md:h-20 md:opacity-100`}></div>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="800"
                                     height="800"
                                     preserveAspectRatio="xMidYMid"
                                     viewBox="0 0 256 249"
-                                    className="h-auto  w-16 z-10"
+                                    className="h-auto  w-16 z-10 md:w-20"
                                 >
                                     <path
                                         fill="#326DE6"
@@ -316,20 +316,20 @@ export default function About() {
                         </div>
                         <div id="ubuntu" className="relative h-fit">
                             <a href="https://ubuntu.com/" target="_blank" rel="noreferrer">
-                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 laptop:opacity-100 transition-opacity ease-in-out duration-500 hover:opacity-0`}></div>
-                                <svg width="2500" height="2500" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" className="h-auto  w-16 z-10" preserveAspectRatio="xMidYMid">
+                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 transition-opacity ease-in-out duration-500 hover:opacity-0 md:w-20 md:h-20 md:opacity-100`}></div>
+                                <svg width="2500" height="2500" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" className="h-auto  w-16 z-10 md:w-20" preserveAspectRatio="xMidYMid">
                                 <path d="M255.637 127.683c0 70.514-57.165 127.68-127.683 127.68C57.434 255.363.27 198.197.27 127.683.27 57.165 57.436 0 127.954 0c70.519 0 127.683 57.165 127.683 127.683z" fill="#DD4814" /><path d="M41.133 110.633c-9.419 0-17.05 7.631-17.05 17.05 0 9.414 7.631 17.046 17.05 17.046 9.415 0 17.046-7.632 17.046-17.046 0-9.419-7.631-17.05-17.046-17.05zm121.715 77.478c-8.153 4.71-10.95 15.13-6.24 23.279 4.705 8.154 15.125 10.949 23.279 6.24 8.153-4.705 10.949-15.125 6.24-23.28-4.705-8.148-15.131-10.943-23.279-6.239zm-84.686-60.428c0-16.846 8.368-31.73 21.171-40.742L86.87 66.067c-14.914 9.97-26.012 25.204-30.624 43.047 5.382 4.39 8.826 11.075 8.826 18.568 0 7.489-3.444 14.174-8.826 18.565C60.852 164.094 71.95 179.33 86.87 189.3l12.463-20.88c-12.803-9.007-21.171-23.89-21.171-40.737zm49.792-49.797c26.013 0 47.355 19.944 49.595 45.38l24.29-.358c-1.194-18.778-9.398-35.636-22.002-48.032-6.482 2.449-13.97 2.074-20.44-1.656-6.483-3.741-10.548-10.052-11.659-16.902a74.26 74.26 0 0 0-19.785-2.69 73.787 73.787 0 0 0-32.819 7.663l11.845 21.227a49.596 49.596 0 0 1 20.975-4.632zm0 99.59a49.601 49.601 0 0 1-20.974-4.632l-11.845 21.225a73.712 73.712 0 0 0 32.82 7.671 74.04 74.04 0 0 0 19.784-2.697c1.111-6.85 5.177-13.155 11.658-16.902 6.476-3.737 13.959-4.105 20.44-1.656 12.605-12.396 20.808-29.254 22.004-48.032l-24.297-.358c-2.235 25.443-23.576 45.38-49.59 45.38zm34.888-110.231c8.154 4.708 18.575 1.92 23.279-6.234 4.71-8.154 1.92-18.575-6.234-23.285-8.154-4.704-18.574-1.91-23.285 6.244-4.703 8.15-1.908 18.57 6.24 23.275z" fill="#FFF" /></svg>
                             </a>
                         </div>
                         <div id="mongodb" className="relative h-fit bg-white rounded-full">
                             <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer">
-                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 laptop:opacity-100 transition-opacity ease-in-out duration-500 hover:opacity-0`}></div>
+                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 transition-opacity ease-in-out duration-500 hover:opacity-0 md:w-20 md:h-20 md:opacity-100`}></div>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="700"
                                     height="700"
                                     viewBox="0 -183 512 512"
-                                    className="h-auto  p-2 w-16 z-10"
+                                    className="h-auto  p-2 w-16 z-10 md:w-20"
                                 >
                                     <g fill="none" fillRule="evenodd">
                                         <path
@@ -370,14 +370,14 @@ export default function About() {
                         </div>
                         <div id="openshift" className="relative h-fit">
                             <a href="https://www.redhat.com/en/technologies/cloud-computing/openshift" target="_blank" rel="noreferrer">
-                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 laptop:opacity-100 transition-opacity ease-in-out duration-500 hover:opacity-0`}></div>
+                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 transition-opacity ease-in-out duration-500 hover:opacity-0 md:w-20 md:h-20 md:opacity-100`}></div>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="800"
                                     height="800"
                                     preserveAspectRatio="xMidYMid"
                                     viewBox="0 -9.5 256 256"
-                                    className="h-auto  w-16 z-10"
+                                    className="h-auto  w-16 z-10 md:w-20"
                                 >
                                     <path
                                         fill="#DA2430"
@@ -414,16 +414,16 @@ export default function About() {
                                 </svg>
                             </a>
                         </div>
-                        <div id="tailwind" className="relative  h-16  w-16 flex items-center bg-white rounded-full">
+                        <div id="tailwind" className="relative h-16 w-16 flex items-center bg-white rounded-full md:w-20 md:h-20">
                             <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">
-                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 laptop:opacity-100 transition-opacity ease-in-out duration-500 hover:opacity-0`}></div>
+                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 transition-opacity ease-in-out duration-500 hover:opacity-0 md:w-20 md:h-20 md:opacity-100`}></div>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="2500"
                                     height="1504"
                                     preserveAspectRatio="xMidYMid"
                                     viewBox="0 0 256 153.6"
-                                    className="h-auto  p-2 w-16 z-10"
+                                    className="h-auto  p-2 w-16 z-10 md:w-20"
                                 >
                                     <linearGradient id="a" x1="-2.778%" y1="32%" y2="67.556%">
                                         <stop offset="0" stopColor="#2298bd"></stop>
@@ -436,16 +436,16 @@ export default function About() {
                                 </svg>
                             </a>
                         </div>
-                        <div id="ibmcloud" className="relative p-2  h-16  w-16 bg-white rounded-full overflow-clip items-center justify-center  hidden ">
+                        <div id="ibmcloud" className="relative p-2 h-16 w-16 bg-white rounded-full overflow-clip items-center justify-center  hidden md:block md:w-20 md:h-20">
                             <a href="https://www.ibm.com/cloud" target="_blank" rel="noreferrer">
-                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 laptop:opacity-100 transition-opacity ease-in-out duration-500 hover:opacity-0`}></div>
-                                <img src='/IBM_Cloud_logo.png' alt="nextjs-logo" width={800} height={800} className="z-10 -mt-1" />
+                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 transition-opacity ease-in-out duration-500 hover:opacity-0 md:w-20 md:h-20 md:opacity-100`}></div>
+                                <img src='/IBM_Cloud_logo.png' alt="ibmcloud-logo" width={800} height={800} className="z-10 -mt-1 md:mt-2" />
                             </a>
                         </div>
-                        <div id="github" className="relative  h-16  w-16 rounded-full items-center justify-center  hidden">
+                        <div id="github" className="relative  h-16  w-16 rounded-full items-center justify-center hidden md:block">
                             <a href="https://github.com/" target="_blank" rel="noreferrer">
-                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 laptop:opacity-100 transition-opacity ease-in-out duration-500 hover:opacity-0`}></div>
-                                <svg xmlns="http://www.w3.org/2000/svg" id="github" viewBox="0 0 128 128" className="h-auto tablet:w-[85px] p-2 w-18 z-10">
+                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 transition-opacity ease-in-out duration-500 hover:opacity-0 md:w-20 md:h-20 md:opacity-100`}></div>
+                                <svg xmlns="http://www.w3.org/2000/svg" id="github" viewBox="0 0 128 128" className="h-auto md:w-[85px] p-2 w-18 z-10">
                                     <g fill="#fff">
                                         <path
                                             fillRule="evenodd"
@@ -461,16 +461,16 @@ export default function About() {
                                 </svg>
                             </a>
                         </div>
-                        <div id="figma" className="relative  h-16  w-16 rounded-full  hidden items-center justify-center">
+                        <div id="figma" className="relative  h-16  w-16 rounded-full hidden items-center justify-center md:flex md:w-20 md:h-20">
                             <a href="https://www.figma.com/" target="_blank" rel="noreferrer">
-                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 laptop:opacity-100 transition-opacity ease-in-out duration-500 hover:opacity-0`}></div>
+                                <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 transition-opacity ease-in-out duration-500 hover:opacity-0 md:w-20 md:h-20 md:opacity-100`}></div>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     id="Layer_1"
                                     width="1667"
                                     height="2500"
                                     viewBox="0 0 200 300"
-                                    className="h-auto tablet:w-[65px] p-2 w-18 z-10"
+                                    className="h-auto w-[60px] p-2 w-18 z-10 md:mt-1"
                                 >
                                     <path
                                         id="path0_fill"
@@ -501,7 +501,7 @@ export default function About() {
                             </a>
                         </div>
                 </div>
-                <div id="logos" className={`gap-5 mt-5 grid w-auto grid-cols-4 ${collapse == true ? "" : "hidden"}`}>
+                <div id="logos" className={`gap-5 mt-5 grid w-auto grid-cols-4 ${collapse == true ? "" : "hidden"} md:hidden`}>
                         <div id="ibmcloud" className="relative p-2  h-16  w-16 bg-white rounded-full overflow-clip flex items-center justify-center">
                             <a href="https://www.ibm.com/cloud" target="_blank" rel="noreferrer">
                                 <div className={` h-16  w-16 bg-black absolute inset-0 z-20 mix-blend-saturation opacity-0 laptop:opacity-100 transition-opacity ease-in-out duration-500 hover:opacity-0`}></div>
@@ -548,7 +548,7 @@ export default function About() {
                             </a>
                         </div>
                 </div>
-                <button className="pt-5 flex items-center gap-1" onClick={() => setCollapse((prev) => !prev)}>
+                <button className="pt-5 flex items-center gap-1 md:hidden" onClick={() => setCollapse((prev) => !prev)}>
                         <div className="bg-white w-5 h-[2px]"></div>
                         <p className="text-xs">{collapse == false ? "Show more" : "Show less"}</p>
                         <div className="bg-white w-5 h-[2px]"></div>

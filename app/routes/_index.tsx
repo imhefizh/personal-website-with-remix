@@ -5,12 +5,12 @@ import { Link, useLoaderData } from "@remix-run/react";
 import { readAchievement, readArticles } from "../../db.js"
 import Articles from "~/components/articles.js";
 import Works from "~/components/works.js";
+import { useState } from "react";
 
 export async function loader() {
     try {
         const badgesAndCerts = await readAchievement();
         const articles = await readArticles();
-
         const badges = []
         const certs = []
         for (const x in badgesAndCerts) {
@@ -40,25 +40,136 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export async function action({request}) {
+  const data = await request.body
+  return data
+}
+
 export default function Index() {
   const {badgesAndCerts} = useLoaderData<typeof loader>();
   const {articles} = useLoaderData<typeof loader>();
+  const [nav, setNav] = useState(0)
+  const [page, setPage] = useState(0)
 
   return (
-      <div className="text-white bg-black px-7 pb-6">
-        <header className="mt-12">
-        <h1 className="font-[800] text-5xl">
-          <Link to="/login" className="cursor-text">
-            Maulana Hafidz Ismail
-          </Link>
-        </h1>
-        <div id="roles" className="flex flex-wrap gap-1 mt-3">
-          <div className="text-black bg-white rounded-full w-fit px-2 text-sm">Fullstack Developer</div>
-          <div className="text-black bg-white rounded-full w-fit px-2 text-sm">Software Engineer</div>
-        </div>
-        <p className="mt-3 text-xs">This website will serve as a gallery of my works and skills, where I&apos;ll showcase everything I create.</p>
-        <div className="flex mt-8 gap-3 items-center">
-          <a href="mailto:hafidzsml@gmail.com" target="_blank" rel="noreferrer">
+      <div className="text-white bg-black px-7 pb-6 md:flex md:p-0 md:gap-7">
+        <header className="sticky top-0 mt-12 md:h-screen md:mt-0 md:py-28 md:w-[45%] md:justify-between md:flex md:flex-col">
+          <div>
+          <h1 className="font-[800] text-5xl">
+            <Link to="/login" className="cursor-text">
+              Maulana Hafidz Ismail
+            </Link>
+          </h1>
+          <div id="roles" className="flex flex-wrap gap-1 mt-3">
+            <div className="text-black bg-white rounded-full w-fit px-2 text-sm">Fullstack Developer</div>
+            <div className="text-black bg-white rounded-full w-fit px-2 text-sm">Software Engineer</div>
+          </div>
+          <p className="mt-3 text-xs md:text-base md:mt-5">This website will serve as a gallery of my works and skills, where I&apos;ll showcase everything I create.</p>
+          <div id="nav"
+            className="hidden md:block md:mt-16"
+          >
+            <ul className="md:flex md:flex-col">
+              <li
+              >
+                <button
+                  className={`hover:font-bold py-1 w-fit cursor-pointer ${
+                    nav == 0 ? "font-bold" : " "
+                  } select-none`}
+                  onClick={() => {
+                    setNav(0);
+                    setPage(0)
+                  }}
+                >
+                  About
+                </button>
+              </li>
+              <li
+              >
+                <button
+                className={`hover:font-bold py-1 w-fit cursor-pointer ${
+                  nav == 1 ? "font-bold" : " "
+                } select-none`}
+                onClick={() => {
+                  setNav(1);
+                  setPage(1)
+                }}
+                >
+                Articles
+                </button>
+              </li>
+              <li
+              >
+                <button
+                className={`hover:font-bold py-1 w-fit cursor-pointer ${
+                  nav == 2 ? "font-bold" : " "
+                } select-none`}
+                onClick={() => {
+                  setNav(2);
+                  setPage(2)
+                }}
+                >
+                Badges & Certs
+                </button>
+              </li>
+                <li
+                ><button
+                className={`hover:font-bold py-1 w-fit cursor-pointer ${
+                  nav == 3 ? "font-bold" : " "
+                } select-none`}
+                onClick={() => {
+                  setNav(3);
+                  setPage(3)
+                }}
+                >
+                  Works
+                </button>
+                </li>
+            </ul>
+          </div>
+          </div>
+          <div id="socmed-laptop" className="hidden md:flex md:gap-2 md:w-full">
+            <div>
+                <a
+                  className="flex items-center gap-1"
+                  href="mailto:hafidzsml@gmail.com"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="800"
+                    height="800"
+                    viewBox="0 0 1920 1920"
+                    className="h-auto w-5 fill-white"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441zM1919.932 226v52.627l-959.943 832.44L.045 278.628V226z"
+                    ></path>
+                  </svg>
+                  <address className="not-italic">
+                    hafidzsml@gmail.com
+                  </address>
+                </a>
+              </div>
+              <div>
+                <a className="flex items-center gap-1" href="tel:+6282282401868">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="800"
+                    height="800"
+                    viewBox="0 0 16 16"
+                    className="h-auto w-5 fill-white"
+                  >
+                    <path d="M11.42 9.49c-.19-.09-1.1-.54-1.27-.61s-.29-.09-.42.1-.48.6-.59.73-.21.14-.4 0a5.1 5.1 0 0 1-1.49-.92 5.3 5.3 0 0 1-1-1.29c-.11-.18 0-.28.08-.38s.18-.21.28-.32a1.4 1.4 0 0 0 .18-.31.38.38 0 0 0 0-.33c0-.09-.42-1-.58-1.37s-.3-.32-.41-.32h-.4a.72.72 0 0 0-.5.23 2.1 2.1 0 0 0-.65 1.55A3.6 3.6 0 0 0 5 8.2 8.3 8.3 0 0 0 8.19 11c.44.19.78.3 1.05.39a2.5 2.5 0 0 0 1.17.07 1.93 1.93 0 0 0 1.26-.88 1.67 1.67 0 0 0 .11-.88c-.05-.07-.17-.12-.36-.21"></path>
+                    <path d="M13.29 2.68A7.36 7.36 0 0 0 8 .5a7.44 7.44 0 0 0-6.41 11.15l-1 3.85 3.94-1a7.4 7.4 0 0 0 3.55.9H8a7.44 7.44 0 0 0 5.29-12.72M8 14.12a6.1 6.1 0 0 1-3.15-.87l-.22-.13-2.34.61.62-2.28-.14-.23a6.18 6.18 0 0 1 9.6-7.65 6.12 6.12 0 0 1 1.81 4.37A6.19 6.19 0 0 1 8 14.12"></path>
+                  </svg>
+                  <address className="not-italic">
+                    +62 822 8240 1868
+                  </address>
+                </a>
+              </div>
+          </div>
+          <div id="socmed-phone" className="flex mt-8 gap-3 items-center md:hidden">
+            <a href="mailto:hafidzsml@gmail.com" target="_blank" rel="noreferrer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="800"
@@ -134,15 +245,15 @@ export default function Index() {
           </svg>
           </a>
         </div>
-      </header>
-        <About />
-        <BadgesAndCerts datas={badgesAndCerts} />
-        <Articles datas={articles} />
-        <Works />
-        <p className="text-xs mt-5">
+        </header>
+        <About pageData={page} />
+        <BadgesAndCerts datas={badgesAndCerts} pageData={page} />
+        <Articles datas={articles} pageData={page} />
+        <Works pageData={page} />
+        <p className="text-xs mt-5 md:hidden">
           Here is the end. Thank you for visiting my personal website, wish you were enjoy it!
         </p>
-        <p className="text-xs mt-3 mb-8">
+        <p className="text-xs mt-3 mb-8 md:hidden">
           This website is made by Maulana Hafidz Ismail with <strong>Remix</strong> and <strong>Tailwind CSS</strong>, and deployed with <strong>Amazon Lightsail</strong>.</p>
       </div>
   );
