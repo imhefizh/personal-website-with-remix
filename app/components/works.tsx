@@ -7,7 +7,7 @@ export default function Works({pageData}) {
                     And here is my works, you can check it one by one..
                 </p>
                 <a href="https://recraftstudio.agency" target="_blank" rel="noreferrer" id="work-card" className={`mt-3 border border-white w-full h-auto rounded-md p-3`}>
-                    <img src="/recraft-preview.png" alt="thumbnail" width={500} height={300} className="bg-white rounded-md h-auto w-full"/>
+                    <img src="/recraft-preview.png" alt="thumbnail" width={500} height={300} className="bg-white rounded-md h-auto w-full border-white border"/>
                     <h2 className="font-semibold text-lg leading-tight mt-2 md:text-xl">Recraft Studio Agency</h2>
                     <p className="text-xs mt-1 line-clamp-2 md:text-base">SPA Website for Recraft Studio&apos;s customer ordering the services</p>
                     <ul className="mt-3 flex gap-1 flex-wrap text-xs">
@@ -19,7 +19,7 @@ export default function Works({pageData}) {
                     </ul>
                 </a>
                 <div id="article-card" className={`mt-3 border border-white w-full h-auto rounded-md p-3`}>
-                    <img src="" alt="thumbnail" width={500} height={250} className="bg-white rounded-md h-auto w-full" />
+                    <img src="/personal-website-preview.png" alt="thumbnail" width={500} height={250} className="bg-white rounded-md h-auto w-full border-white border" />
                     <h2 className="font-semibold text-lg leading-tight mt-2 md:text-xl">Personal Website</h2>
                     <p className="text-xs mt-1 line-clamp-2 md:text-base">Website for personal branding while I share some articles or things. </p>
                     <ul className="mt-3 flex gap-1 flex-wrap text-xs">
