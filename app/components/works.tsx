@@ -1,6 +1,6 @@
 export default function Works({pageData}) {
     return (
-        <div className={`mt-8 md:w-[55%] md:mt-0 md:py-28 ${pageData == 3 ? "" : "hidden"}`}>
+        <div className={`mt-8 md:w-[55%] md:mt-0 md:py-28 ${pageData == 3 ? "" : "md:hidden"}`}>
             <h1 className="font-bold text-2xl md:text-3xl">Works</h1>
             <div className="flex flex-col">
                 <p className="text-xs mt-2 md:text-base">
@@ -11,11 +11,13 @@ export default function Works({pageData}) {
                     <h2 className="font-semibold text-lg leading-tight mt-2 md:text-xl">Recraft Studio Agency</h2>
                     <p className="text-xs mt-1 line-clamp-2 md:text-base">SPA Website for Recraft Studio&apos;s customer ordering the services</p>
                     <ul className="mt-3 flex gap-1 flex-wrap text-xs">
-                            <li className="w-fit bg-white text-black rounded-full px-2">React</li>
+                            <li className="w-fit bg-white text-black rounded-full px-2">Next.js</li>
                             <li className="w-fit bg-white text-black rounded-full px-2">MongoDB</li>
                             <li className="w-fit bg-white text-black rounded-full px-2">Payment Gateway</li>
                             <li className="w-fit bg-white text-black rounded-full px-2">JWT</li>
                             <li className="w-fit bg-white text-black rounded-full px-2">Whatsapp API</li>
+                            <li className="w-fit bg-white text-black rounded-full px-2">Tailwind CSS</li>
+                            <li className="w-fit bg-white text-black rounded-full px-2">Express.js</li>
                     </ul>
                 </a>
                 <div id="article-card" className={`mt-3 border border-white w-full h-auto rounded-md p-3`}>
@@ -26,6 +28,9 @@ export default function Works({pageData}) {
                             <li className="w-fit bg-white text-black rounded-full px-2">Remix</li>
                             <li className="w-fit bg-white text-black rounded-full px-2">MongoDB</li>
                             <li className="w-fit bg-white text-black rounded-full px-2">JWT</li>
+                            <li className="w-fit bg-white text-black rounded-full px-2">Tailwind CSS</li>
+                            <li className="w-fit bg-white text-black rounded-full px-2">AWS</li>
+                            <li className="w-fit bg-white text-black rounded-full px-2">Cloudflare</li>
                     </ul>
                 </div>
             </div>

@@ -17,12 +17,11 @@ const [screenW, setScreenW] = useState(0);
 const data = datas
 
 useEffect(() => {
-    setScreenW(window.screen.width)
+    setScreenW(window.innerWidth)
 }, [])
 
-
     return (
-        <div className={`mt-8 md:w-[55%] md:mt-0 md:py-28 ${pageData == 2 ? "" : "hidden"}`}>
+        <div className={`mt-8 md:w-[55%] md:mt-0 md:py-28 ${pageData == 2 ? "" : "md:hidden"}`}>
             <h1 className="font-bold text-2xl md:text-3xl">Badges and Certificates</h1>
             <div className="flex flex-col items-center">
                 <p className="text-xs mt-2 md:text-base">I like to do my own learning. Often by taking online courses and professional certifications. Here are the badges and certificates I have earned so far...</p>

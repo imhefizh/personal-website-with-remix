@@ -5,7 +5,7 @@ export default function About({pageData}) {
     const [collapse, setCollapse] = useState(false)
 
     return (
-        <div className={`mt-10 md:w-[55%] md:mt-0 md:py-28 ${pageData == 0 ? "" : "hidden"}`}>
+        <div className={`mt-10 md:w-[55%] md:mt-0 md:py-28 ${pageData == 0 ? "" : "md:hidden"}`}>
             <h1 className="font-bold text-2xl md:text-3xl">About Me</h1>
             <div className="flex flex-col items-center">
                 <p className="text-xs mt-2 md:text-base md:text-justify">

@@ -36,11 +36,16 @@ export async function insertOneResponse(data) {
 
     const dbInstance = client.db("content");
     const collection = dbInstance.collection("articles");
-
-    const theArticle = collection.findOne(data.title);
-    // Dilanjut besok
-
-    return await collection.insertOne(data);
+    // console.log({ title: data.title });
+    const update = await collection.updateOne(
+      { title: data.title },
+      {
+        $push: {
+          comments: { name: data.name, comment: data.comment, date: data.date },
+        },
+      }
+    );
+    return { status: update.acknowledged };
   } catch (err) {
     console.log(err);
   } finally {

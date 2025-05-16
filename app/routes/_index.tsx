@@ -53,7 +53,7 @@ export default function Index() {
 
   return (
       <div className="text-white bg-black px-7 pb-6 md:flex md:p-0 md:gap-7">
-        <header className="sticky top-0 mt-12 md:h-screen md:mt-0 md:py-28 md:w-[45%] md:justify-between md:flex md:flex-col">
+        <header className="md:sticky top-0 mt-12 md:h-screen md:mt-0 md:py-28 md:w-[45%] md:justify-between md:flex md:flex-col">
           <div>
           <h1 className="font-[800] text-5xl">
             <Link to="/login" className="cursor-text">
