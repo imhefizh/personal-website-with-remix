@@ -135,7 +135,7 @@ export default function Article() {
                                     <p className={`${navigation.state == "submitting" ? "hidden" : "hover:text-white hover:bg-black"}`}>
                                         Respond
                                     </p>
-                                    <div className={`${navigation.state == "submitting" ? "" : "hidden"} flex space-x-1 justify-center items-center dark:invert h-fit rounded-full px-4 py-2`}>
+                                    <div className={`${navigation.state == "submitting" ? "" : "hidden"} flex space-x-1 justify-center items-center h-fit rounded-full px-4 py-2`}>
                                     <div className='h-1 w-2 bg-black rounded-full animate-bounce [animation-delay:-0.3s]'></div>
                                     <div className='h-1 w-2 bg-black rounded-full animate-bounce [animation-delay:-0.15s]'></div>
                                     <div className='h-1 w-2 bg-black rounded-full animate-bounce'></div>
