@@ -27,7 +27,7 @@ export default function Articles({datas, pageData}: Props) {
                 </p>
                 {datas?.map((article, index) => (
                 <Link to={`/articles/${encodeURIComponent(article.title)}`} key={index} id="article-card" className={`${index < 3 || show == true || screenW > 768 ? "" : "hidden"} mt-3 border border-white w-full h-auto rounded-md p-3`}>
-                    <div className={`${navigation.state == "loading" && navigation.location.pathname == `/articles/${encodeURIComponent(article.title)}` ? "" : "hidden"} flex space-x-2 justify-center items-center dark:invert h-[7rem]`}>
+                    <div className={`${navigation.state == "loading" && navigation.location.pathname == `/articles/${encodeURIComponent(article.title)}` ? "" : "hidden"} flex space-x-2 justify-center items-center h-[7rem]`}>
                         <div className='h-3 w-3 bg-white rounded-full animate-bounce [animation-delay:-0.3s]'></div>
                         <div className='h-3 w-3 bg-white rounded-full animate-bounce [animation-delay:-0.15s]'></div>
                         <div className='h-3 w-3 bg-white rounded-full animate-bounce'></div>
