@@ -181,7 +181,7 @@ export default function Article() {
                         <Link key={index} to={`/articles/${encodeURIComponent(article.title)}`}>
                 <div id="article-card" className={`${index < 3 == true ? "" : "hidden"} mt-3 border border-black black w-full h-auto rounded-md p-3`}>
                     <h2 className="font-semibold text-lg leading-tight">{article.title}</h2>
-                    <p className="text-xs mt-3 line-clamp-2">{article.content}</p>
+                    <div className="text-xs mt-3 line-clamp-2 md:text-base" dangerouslySetInnerHTML={{ __html: article.content }}></div>
                     <ul className="mt-4 flex gap-1 flex-wrap text-xs">
                         {article["tags"].map((tag, index) => (
                             <li key={index} className="w-fit bg-black text-white rounded-full px-2">{tag}</li>

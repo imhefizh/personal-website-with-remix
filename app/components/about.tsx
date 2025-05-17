@@ -12,8 +12,8 @@ export default function About({pageData}) {
                 Everyone like to read less and get the point straightly. So I&apos;ll make this page with several questions that help you to know me. Here we go...
                 </p>
                 <ul className="mt-3 flex flex-col gap-2 w-full">
-                    <li className="flex flex-col items-center md:text-lg">
-                        <button onClick={() => setShow(show != 1 ? 1 : 0)} className="flex items-center w-[80%] justify-between">
+                    <li className="flex flex-col items-center text-sm md:text-lg">
+                        <button onClick={() => setShow(show != 1 ? 1 : 0)} className="flex items-center w-[80%] text-nowrap justify-between">
                             <h2>
                                 Who are you?
                             </h2>
@@ -26,8 +26,8 @@ export default function About({pageData}) {
                         </p>
                     </li>
 
-                    <li className="flex flex-col items-center md:text-lg">
-                        <button onClick={() => setShow(show != 2 ? 2 : 0)} className="flex items-center w-[80%] justify-between">
+                    <li className="flex flex-col items-center text-sm md:text-lg">
+                        <button onClick={() => setShow(show != 2 ? 2 : 0)} className="flex text-nowrap items-center w-[80%] justify-between">
                             <h2>
                                 What are you interested to?
                             </h2>
@@ -40,8 +40,8 @@ export default function About({pageData}) {
                         </p>
                     </li>
 
-                    <li className="flex flex-col items-center md:text-lg">
-                        <button onClick={() => setShow(show != 3 ? 3 : 0)} className="flex items-center w-[80%] justify-between">
+                    <li className="flex flex-col items-center text-sm md:text-lg">
+                        <button onClick={() => setShow(show != 3 ? 3 : 0)} className="flex text-nowrap items-center w-[80%] justify-between">
                             <h2>
                                 Any dream for life? Any vision?
                             </h2>
@@ -54,8 +54,8 @@ export default function About({pageData}) {
                         </p>
                     </li>
 
-                    <li className="flex flex-col items-center md:text-lg">
-                        <button onClick={() => setShow(show != 4 ? 4 : 0)} className="flex items-center w-[80%] justify-between">
+                    <li className="flex flex-col items-center text-sm md:text-lg">
+                        <button onClick={() => setShow(show != 4 ? 4 : 0)} className="flex text-nowrap items-center w-[80%] justify-between">
                         <h2>
                             What you want to be?
                         </h2>
@@ -68,8 +68,8 @@ export default function About({pageData}) {
                         </p>
                     </li>
 
-                    <li className="flex flex-col items-center md:text-lg">
-                        <button onClick={() => setShow(show != 5 ? 5 : 0)} className="flex items-center w-[80%] justify-between">
+                    <li className="flex flex-col items-center text-sm md:text-lg">
+                        <button onClick={() => setShow(show != 5 ? 5 : 0)} className="flex text-nowrap items-center w-[80%] justify-between">
                         <h2>
                             Do your have any Role Model?
                         </h2>
